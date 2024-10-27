@@ -9,7 +9,9 @@ Project Overview
 4. Use Terraform to define and launch servers: We define the infrastructure as code using Terraform.
 5. Install software with Ansible: Finally, we use Ansible to install necessary software packages and dependencies on both servers.
 
+
 ![DALL·E 2024-10-27 16 27 03 - A project architecture diagram for 'AWS Jenkins-Docker Infrastructure Automation'  The diagram should show two AWS EC2 instances_ one labeled 'Jenkins](https://github.com/user-attachments/assets/e6bf3afc-970d-4e52-986b-bca1301f059f)
+
 
 Task-1: Installing Terraform onto Anchor Server.
 Once the Anchor EC2 server is up and running, SSH into the machine using MobaXterm or Putty with the username ubuntu and do the following:
@@ -20,6 +22,8 @@ set Hostname
 
 ```bash```
 
+To update the list of available software packages
+
 ```sudo apt update```
 
 ```sudo apt install wget unzip -y```
@@ -28,9 +32,13 @@ Download Terraform latest version
 
 ```wget https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip```
 
-View the Terraform's Latest Versions
+
+To unzip the file
+
 
 ```unzip terraform_1.9.5_linux_amd64.zip```
+
+to List
 
 ```ls```
 
@@ -43,6 +51,7 @@ To see Terraform version
 ```terraform -v```
 
 Now remove zip file
+
 ```rm terraform_1.9.5_linux_amd64.zip```
 
 Task 2: Install Python 3, pip, AWS CLI, and Ansible
