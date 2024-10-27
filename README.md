@@ -85,11 +85,11 @@ Default region name [None]: us-east-1
 Default output format [None]: json
 ```
 4. Smoke Test for AWS CLI
+
 To verify that my credentials were valid, I ran a simple command to list my S3 buckets:
 
-```aws s3 ls```
-Or
 ```aws iam list-users```
+
 This confirmed that AWS CLI was properly configured.
 
 5. Create Ansible Host Inventory File
