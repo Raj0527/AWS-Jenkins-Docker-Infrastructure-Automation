@@ -234,4 +234,6 @@ exit
 ```
 I Have successfully performed this task, and Terraform has provisioned two EC2 instances—one for Jenkins and one for Docker. Now, I can proceed with configuring Jenkins and Docker.
 
+## Task 4: Use Ansible to Deploy Respective Packages onto Each of the Servers
 
+### Step 1: Create a Directory for Ansible Playbooks
