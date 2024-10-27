@@ -95,8 +95,8 @@ This confirmed that AWS CLI was properly configured.
 5. Create Ansible Host Inventory File
 To configure Ansible, I created a host inventory file by running the following commands:
 
-```sudo mkdir /etc/ansible && sudo touch /etc/ansible/hosts
-sudo chmod 766 /etc/ansible/hosts```
+```sudo mkdir /etc/ansible && sudo touch /etc/ansible/hosts```
+```sudo chmod 766 /etc/ansible/hosts```
 
 I have successfully completed this task, and now I can use Ansible and AWS CLI to automate infrastructure management.
 
