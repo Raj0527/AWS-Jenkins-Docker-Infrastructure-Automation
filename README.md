@@ -54,7 +54,7 @@ Now remove zip file
 
 ```rm terraform_1.9.5_linux_amd64.zip```
 
-##Task 2: Install Python 3, pip, AWS CLI, and Ansible
+## Task 2: Install Python 3, pip, AWS CLI, and Ansible
 In this task, I have installed Python 3, pip, AWS CLI, and Ansible to configure and manage AWS resources.
 
 Step-by-Step Instructions
@@ -86,22 +86,16 @@ Default output format [None]: json
 4. Smoke Test for AWS CLI
 To verify that my credentials were valid, I ran a simple command to list my S3 buckets:
 
-```
-aws s3 ls
-```
+```aws s3 ls```
 Or
-```
-aws iam list-users
-```
+```aws iam list-users```
 This confirmed that AWS CLI was properly configured.
 
 5. Create Ansible Host Inventory File
 To configure Ansible, I created a host inventory file by running the following commands:
 
-```
-sudo mkdir /etc/ansible && sudo touch /etc/ansible/hosts
-sudo chmod 766 /etc/ansible/hosts
-```
+```sudo mkdir /etc/ansible && sudo touch /etc/ansible/hosts
+sudo chmod 766 /etc/ansible/hosts```
 
 I have successfully completed this task, and now I can use Ansible and AWS CLI to automate infrastructure management.
 
@@ -112,19 +106,18 @@ Step-by-Step Instructions
 1. Create the Directory and Set Up Configuration Files
 I started by creating a directory for the Terraform configuration files:
 
-```
-mkdir devops-labs && cd devops-labs
-```
+```mkdir devops-labs && cd devops-labs```
+
 2. Generate an SSH Key
 To ensure secure SSH access to the EC2 instances, I generated an SSH key using the following command:
+
 ```
 ssh-keygen -t rsa -b 2048
 ```
+
 3. Create the Terraform Configuration File
 I created the Terraform configuration file DevOpsServers.tf to define the two EC2 instances for Jenkins and Docker.
-```
-vi DevOpsServers.tf
-```
+```vi DevOpsServers.tf```
 
 I copied and pasted the following Terraform code:
 ```
@@ -159,9 +152,7 @@ resource "aws_instance" "my-machine" {
 ```
 4. Create the Variables File
 I then created the variables.tf file to define the necessary variables:
-```
-vi variables.tf
-```
+```vi variables.tf```
 Here is the content of the variables.tf file:
 
 ```
@@ -207,14 +198,12 @@ terraform apply -auto-approve
 ```
 Terraform successfully provisioned the EC2 instances for Jenkins and Docker. After the execution, I checked the Ansible hosts inventory to ensure that the public IPs of the two servers were added:
 
-```
-cat /etc/ansible/hosts
-```
+```cat /etc/ansible/hosts```
+
 6. Update Public IP Addresses (Optional)
 Since public IPs change when EC2 instances stop and start, I updated the hosts file if necessary:
-```
-sudo vi /etc/ansible/hosts
-```
+```sudo vi /etc/ansible/hosts```
+
 7. Access Jenkins and Docker Servers
 Finally, I SSH’d into both the Jenkins and Docker servers to verify they were accessible and set their hostnames:
 
@@ -240,16 +229,12 @@ Step 1: Create a Directory for Ansible Playbooks
 I began by creating a directory to hold my Ansible playbooks.
 
 Create ansible directory and go at that place
-```
-mkdir ansible && cd ansible
-```
+```mkdir ansible && cd ansible```
 
 Step 2: Create the Ansible Playbook
 I created a YAML file named DevOpsSetup.yaml to define the tasks for setting up Jenkins and Docker.
 
-```
-vi DevOpsSetup.yaml
-```
+```vi DevOpsSetup.yaml```
 
 Content of ```DevOpsSetup.yaml```
 ```
@@ -375,12 +360,12 @@ Content of ```DevOpsSetup.yaml```
       state: restarted
 ...
 ```
+
 Step 3: Run the Ansible Playbook
 After saving the playbook, I executed it to deploy the packages onto the respective servers.
 
-```
-ansible-playbook DevOpsSetup.yaml
-```
+```ansible-playbook DevOpsSetup.yaml```
+
 ### Conclusion
 By following the above steps, I successfully set up Jenkins and Docker on their respective servers using Ansible. This automation not only streamlined the installation process but also ensured consistency across environments.
 
