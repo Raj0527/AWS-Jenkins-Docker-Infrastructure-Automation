@@ -360,7 +360,7 @@ Content of ```DevOpsSetup.yaml```
       name: docker
       state: restarted
 ...
-
+```
 
 Step 3: Run the Ansible Playbook
 After saving the playbook, I executed it to deploy the packages onto the respective servers.
