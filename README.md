@@ -1,6 +1,6 @@
 # AWS Jenkins-Docker Infrastructure Automation
 
-This project demonstrates automating the infrastructure provisioning and configuration of Jenkins and Docker servers on AWS using Terraform and Ansible. The goal is to launch and configure two EC2 instances: one for Jenkins and one for Docker.
+This project demonstrates automating the infrastructure provisioning and configuration of Jenkins and Docker servers on AWS using Terraform and Ansible. My goal is to launch and configure two EC2 instances: one for Jenkins and one for Docker.
 
 Project Overview
 1. Launch two EC2 instances in AWS: One instance will serve as the Jenkins server, and the other will host Docker.
@@ -14,6 +14,8 @@ Project Overview
 Task-1: Installing Terraform onto Anchor Server.
 Once the Anchor EC2 server is up and running, SSH into the machine using MobaXterm or Putty with the username ubuntu and do the following:
 
+set Hostname
+
 ```sudo hostnamectl set-hostname CICDLab```
 
 ```bash```
@@ -21,6 +23,8 @@ Once the Anchor EC2 server is up and running, SSH into the machine using MobaXte
 ```sudo apt update```
 
 ```sudo apt install wget unzip -y```
+
+Download Terraform latest version
 
 ```wget https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip```
 
@@ -30,7 +34,11 @@ View the Terraform's Latest Versions
 
 ```ls```
 
+moving terraform file to perticular location
+
 ```sudo mv terraform /usr/local/bin```
+
+To see Terraform version
 
 ```terraform -v```
 
@@ -72,4 +80,19 @@ To verify that my credentials were valid, I ran a simple command to list my S3 b
 ```
 aws s3 ls
 ```
+Or
+```
+aws iam list-users
+```
+This confirmed that AWS CLI was properly configured.
+
+5. Create Ansible Host Inventory File
+To configure Ansible, I created a host inventory file by running the following commands:
+
+```
+sudo mkdir /etc/ansible && sudo touch /etc/ansible/hosts
+sudo chmod 766 /etc/ansible/hosts
+```
+
+I have successfully completed this task, and now I can use Ansible and AWS CLI to automate infrastructure management.
 
