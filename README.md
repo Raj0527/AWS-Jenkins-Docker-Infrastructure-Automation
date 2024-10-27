@@ -13,7 +13,7 @@ Project Overview
 ![DALL·E 2024-10-27 16 27 03 - A project architecture diagram for 'AWS Jenkins-Docker Infrastructure Automation'  The diagram should show two AWS EC2 instances_ one labeled 'Jenkins](https://github.com/user-attachments/assets/e6bf3afc-970d-4e52-986b-bca1301f059f)
 
 
-###Task-1: Installing Terraform onto Anchor Server.
+## Task-1: Installing Terraform onto Anchor Server.
 Once the Anchor EC2 server is up and running, SSH into the machine using MobaXterm or Putty with the username ubuntu and do the following:
 
 set Hostname
