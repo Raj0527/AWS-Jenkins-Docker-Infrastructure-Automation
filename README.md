@@ -60,9 +60,11 @@ I was then prompted to enter my AWS Access Key, Secret Access Key, default regio
 
 Example Credentials:
 
-```Access Key ID [None]: ------------------
+```
+Access Key ID [None]: ------------------
 Secret Access Key [None]: ---------------
 Default region name [None]: us-east-1
-Default output format [None]: json```
+Default output format [None]: json
+```
 
 
