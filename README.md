@@ -66,5 +66,8 @@ Secret Access Key [None]: ---------------
 Default region name [None]: us-east-1
 Default output format [None]: json
 ```
+4. Smoke Test for AWS CLI
+To verify that my credentials were valid, I ran a simple command to list my S3 buckets:
 
+```aws s3 ls```
 
