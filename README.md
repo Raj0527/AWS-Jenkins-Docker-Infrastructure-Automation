@@ -42,7 +42,7 @@ to List
 
 ```ls```
 
-moving terraform file to perticular location
+moving terraform file to particular location
 
 ```sudo mv terraform /usr/local/bin```
 
@@ -104,4 +104,134 @@ sudo chmod 766 /etc/ansible/hosts
 ```
 
 I have successfully completed this task, and now I can use Ansible and AWS CLI to automate infrastructure management.
+
+Task 3: Use Terraform to Launch Two Servers
+In this task, I have used Terraform to provision and launch two EC2 instances—one for Jenkins and another for Docker.
+
+Step-by-Step Instructions
+1. Create the Directory and Set Up Configuration Files
+I started by creating a directory for the Terraform configuration files:
+
+```
+mkdir devops-labs && cd devops-labs
+```
+2. Generate an SSH Key
+To ensure secure SSH access to the EC2 instances, I generated an SSH key using the following command:
+```
+ssh-keygen -t rsa -b 2048
+```
+3. Create the Terraform Configuration File
+I created the Terraform configuration file DevOpsServers.tf to define the two EC2 instances for Jenkins and Docker.
+```
+vi DevOpsServers.tf
+```
+
+I copied and pasted the following Terraform code:
+```
+provider "aws" {
+  region = var.region
+}
+
+resource "aws_key_pair" "mykeypair" {
+  key_name   = var.key_name
+  public_key = file(var.public_key)
+}
+
+resource "aws_instance" "my-machine" {
+  for_each = toset(var.my-servers)
+
+  ami                    = var.ami_id
+  key_name               = var.key_name
+  vpc_security_group_ids = [var.sg_id]
+  instance_type          = var.ins_type
+
+  tags = {
+    Name = each.key
+  }
+
+  provisioner "local-exec" {
+    command = <<-EOT
+      echo [${each.key}] >> /etc/ansible/hosts
+      echo ${self.public_ip} >> /etc/ansible/hosts
+    EOT
+  }
+}
+```
+4. Create the Variables File
+I then created the variables.tf file to define the necessary variables:
+```
+vi variables.tf
+```
+Here is the content of the variables.tf file:
+
+```
+variable "region" {
+    default = "us-east-1"
+}
+
+variable "sg_id" {
+    default = "sg-06dc8863d3ed3d280" 
+}
+
+variable "ami_id" {
+    default = "ami-0866a3c8686eaeeba" 
+}
+
+variable "ins_type" {
+    default = "t2.micro"
+}
+
+variable "key_name" {
+    default = "YourName-CICDlab-KeyPair"
+}
+
+variable "public_key" {
+    default = "/home/ubuntu/.ssh/id_rsa.pub"
+}
+
+variable "my-servers" {
+    type    = list(string)
+    default = ["jenkins-server", "docker-server"]
+}
+```
+I replaced the region, security group ID, and key pair name with my specific values for this project.
+
+5. Execute the Terraform Configuration
+Next, I initialized and applied the Terraform configuration:
+```
+terraform init
+terraform fmt
+terraform validate
+terraform plan
+terraform apply -auto-approve
+```
+Terraform successfully provisioned the EC2 instances for Jenkins and Docker. After the execution, I checked the Ansible hosts inventory to ensure that the public IPs of the two servers were added:
+
+```
+cat /etc/ansible/hosts
+```
+6. Update Public IP Addresses (Optional)
+Since public IPs change when EC2 instances stop and start, I updated the hosts file if necessary:
+```
+sudo vi /etc/ansible/hosts
+```
+7. Access Jenkins and Docker Servers
+Finally, I SSH’d into both the Jenkins and Docker servers to verify they were accessible and set their hostnames:
+
+Access Jenkins Server
+```
+ssh ubuntu@<Jenkins-IP-address>
+sudo hostnamectl set-hostname Jenkins
+sudo apt update
+exit
+```
+Access Docker Server
+```
+ssh ubuntu@<Docker-IP-address>
+sudo hostnamectl set-hostname Docker
+sudo apt update
+exit
+```
+I Have successfully performed this task, and Terraform has provisioned two EC2 instances—one for Jenkins and one for Docker. Now, I can proceed with configuring Jenkins and Docker.
+
 
