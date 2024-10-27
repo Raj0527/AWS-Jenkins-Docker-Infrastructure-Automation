@@ -13,7 +13,7 @@ Project Overview
 ![DALL·E 2024-10-27 16 27 03 - A project architecture diagram for 'AWS Jenkins-Docker Infrastructure Automation'  The diagram should show two AWS EC2 instances_ one labeled 'Jenkins](https://github.com/user-attachments/assets/e6bf3afc-970d-4e52-986b-bca1301f059f)
 
 
-Task-1: Installing Terraform onto Anchor Server.
+##Task-1: Installing Terraform onto Anchor Server.
 Once the Anchor EC2 server is up and running, SSH into the machine using MobaXterm or Putty with the username ubuntu and do the following:
 
 set Hostname
@@ -54,7 +54,7 @@ Now remove zip file
 
 ```rm terraform_1.9.5_linux_amd64.zip```
 
-Task 2: Install Python 3, pip, AWS CLI, and Ansible
+##Task 2: Install Python 3, pip, AWS CLI, and Ansible
 In this task, I have installed Python 3, pip, AWS CLI, and Ansible to configure and manage AWS resources.
 
 Step-by-Step Instructions
@@ -105,7 +105,7 @@ sudo chmod 766 /etc/ansible/hosts
 
 I have successfully completed this task, and now I can use Ansible and AWS CLI to automate infrastructure management.
 
-Task 3: Use Terraform to Launch Two Servers
+##Task 3: Use Terraform to Launch Two Servers
 In this task, I have used Terraform to provision and launch two EC2 instances—one for Jenkins and another for Docker.
 
 Step-by-Step Instructions
