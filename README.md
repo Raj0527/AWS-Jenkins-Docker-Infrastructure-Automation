@@ -12,28 +12,36 @@ Project Overview
 Task-1: Installing Terraform onto Anchor Server.
 Once the Anchor EC2 server is up and running, SSH into the machine using MobaXterm or Putty with the username ubuntu and do the following:
 
-sudo hostnamectl set-hostname CICDLab
-bash
+```sudo hostnamectl set-hostname CICDLab```
+
+```bash```
 
 ```sudo apt update```
 
 ```sudo apt install wget unzip -y```
 
-wget https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
+```wget https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip```
+
 View the Terraform's Latest Versions
 
-unzip terraform_1.9.5_linux_amd64.zip
-ls
-sudo mv terraform /usr/local/bin
-ls
-terraform -v
-rm terraform_1.9.5_linux_amd64.zip
+```unzip terraform_1.9.5_linux_amd64.zip```
+
+```ls```
+
+```sudo mv terraform /usr/local/bin```
+
+```terraform -v```
+
+Now remove zip file
+```rm terraform_1.9.5_linux_amd64.zip```
+
 Task-2: Install Python 3, pip, AWS CLI, and Ansible
 Install Python 3 and the required packages:
 
-sudo apt-get update
-sudo apt-get install python3-pip -y
-sudo pip3 install awscli boto boto3 ansible
+```sudo apt-get update```
+```sudo apt-get install python3-pip -y```
+```sudo pip3 install awscli boto boto3 ansible```
+
 aws configure
 Enter the Credentials as below. Example:
 Access Key ID	   Secret Access Key
