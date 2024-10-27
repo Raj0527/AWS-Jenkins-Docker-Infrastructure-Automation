@@ -14,8 +14,11 @@ Once the Anchor EC2 server is up and running, SSH into the machine using MobaXte
 
 sudo hostnamectl set-hostname CICDLab
 bash
+
 ```sudo apt update```
-sudo apt install wget unzip -y
+
+```sudo apt install wget unzip -y```
+
 wget https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
 View the Terraform's Latest Versions
 
