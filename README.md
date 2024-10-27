@@ -73,6 +73,7 @@ Next, I installed AWS CLI, Boto, and Ansible using pip3:
 After installing AWS CLI, I configured it by running the following command:
 
 ```aws configure```
+
 I was then prompted to enter my AWS Access Key, Secret Access Key, default region, and output format.
 
 Example Credentials:
