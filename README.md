@@ -45,3 +45,24 @@ Step-by-Step Instructions
 First, I updated the package list and installed Python 3 and pip using the following commands:
 
 ```sudo apt-get update```
+```sudo apt-get install python3-pip -y```
+
+2. Install AWS CLI, Boto, and Ansible
+Next, I installed AWS CLI, Boto, and Ansible using pip3:
+
+```sudo pip3 install awscli boto boto3 ansible```
+
+3. Configure AWS CLI
+After installing AWS CLI, I configured it by running the following command:
+
+```aws configure```
+I was then prompted to enter my AWS Access Key, Secret Access Key, default region, and output format.
+
+Example Credentials:
+
+```Access Key ID [None]: ------------------
+Secret Access Key [None]: ---------------
+Default region name [None]: us-east-1
+Default output format [None]: json```
+
+
